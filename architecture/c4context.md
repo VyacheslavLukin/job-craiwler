@@ -6,7 +6,9 @@ Main blocks:
 - Business logic 
 - OpenAI connector
 
-Simple approximation, no queues yet
+Simple approximation, no queues yet. No elements have been implemented.
+
+
 ```mermaid
 C4Context
     System_Boundary(client, "Client side") {
@@ -18,7 +20,7 @@ C4Context
       Container(api, API, "FastAPI", "Communicates with SPA")
       Container(ai_con, OpenAI Conector, "Python")
       Container(core, Core, "Python")
-      Container(db, DB, "Database")
+      Container(db, DataBase, "Stores user info")
     }
 
 
@@ -28,7 +30,13 @@ C4Context
     Rel(ai_con, openai, "Uses", "HTTPS")
     BiRel(api, core, "Uses")
     BiRel(ai_con, core, "Uses")
-    Rel(core, db, "Uses")
+    Rel(core, db, "CRUD")
+
+    UpdateElementStyle(spa, $fontColor="grey", $bgColor="white", $borderColor="grey")
+    UpdateElementStyle(api, $fontColor="grey", $bgColor="white", $borderColor="grey")
+    UpdateElementStyle(core, $fontColor="grey", $bgColor="white", $borderColor="grey")
+    UpdateElementStyle(db, $fontColor="grey", $bgColor="white", $borderColor="grey")
+    UpdateElementStyle(ai_con, $fontColor="grey", $bgColor="white", $borderColor="grey")
 
     UpdateLayoutConfig($c4ShapeInRow="1", $c4BoundaryInRow="2")
 
