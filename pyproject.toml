@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "job-craiwler"
+version = "0.1.0"
+description = "Assistant to find relevant jobs and prepare cover letter with GPT"
+authors = ["Vyacheslav Lukin <slava@edgevision.pro>"]
+license = "GNU General Public License v3.0"
+readme = "README.md"
+packages = [{include = "job_craiwler"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.95.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
