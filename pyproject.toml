@@ -11,6 +11,7 @@ packages = [{include = "job_craiwler"}]
 python = "^3.11"
 fastapi = "^0.95.2"
 pytest-bdd = "^6.1.1"
+dynaconf = "^3.1.12"
 
 
 [build-system]
