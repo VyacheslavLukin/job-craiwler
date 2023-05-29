@@ -10,6 +10,7 @@ packages = [{include = "job_craiwler"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.95.2"
+pytest-bdd = "^6.1.1"
 
 
 [build-system]
