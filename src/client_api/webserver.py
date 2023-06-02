@@ -1,6 +1,6 @@
 from src.client_api import app
 
-def run_server():
+def run_server() -> None:
     import uvicorn
     uvicorn.run("src.client_api:app", host="0.0.0.0", port=7272, reload=True)
 
