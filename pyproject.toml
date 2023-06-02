@@ -3,16 +3,21 @@ name = "job-craiwler"
 version = "0.1.0"
 description = "Assistant to find relevant jobs and prepare cover letter with GPT"
 authors = ["Vyacheslav Lukin <slava@edgevision.pro>"]
-license = "GNU General Public License v3.0"
+license = "LGPL-3.0-only"
 readme = "README.md"
-packages = [{include = "job_craiwler"}]
+packages = [
+    {include = "client_api", from = "src"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.95.2"
 pytest-bdd = "^6.1.1"
 dynaconf = "^3.1.12"
+uvicorn = "^0.22.0"
 
+[tool.poetry.scripts]
+api = "client_api.webserver:run_server"
 
 [build-system]
 requires = ["poetry-core"]
