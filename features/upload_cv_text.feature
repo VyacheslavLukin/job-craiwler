@@ -1,7 +1,9 @@
 Feature: Upload text CV
-    An UI element that allows job seeker upload CV as a text
+    As a job seeker
+    I want to upload my CV
+    So that system can use this data to prepare cover letter
 
-    Scenario: Uploading text
+    Scenario: Uploading text CV
         Given I'm a job seeker
         And I have text of the CV
 
@@ -9,5 +11,4 @@ Feature: Upload text CV
         And I paste text in the CV section
         And I press 'Upload' button
 
-        Then I should not see the error message
-        And the CV should be uploaded # to the DB
+        Then the CV should be uploaded # to the DB

@@ -1,5 +1,8 @@
 """Upload text CV feature tests."""
 
+from typing import Literal
+from src.client_api import app
+from fastapi.testclient import TestClient
 from pytest_bdd import (
     given,
     scenario,
@@ -7,46 +10,47 @@ from pytest_bdd import (
     when,
 )
 
+client = TestClient(app)
 
-@scenario("upload_cv_text.feature", "Uploading text")
+
+@scenario("upload_cv_text.feature", "Uploading text CV")
 def test_uploading_text():
-    """Uploading text."""
+    """Uploading text CV."""
 
 
 @given("I'm a job seeker")
 def given_job_seeker():
-    pass  # no validations for now. Registered users will be checked with DB later
+    raise NotImplementedError
 
 
 @given("I have text of the CV")
-def given_cv_text():
+def given_cv_text() -> Literal["cv text"]:
     return create_test_cv_text()
 
 
 @when("I go to the main page")
 def when_main_page():
-    pass
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"msg": "Hello World"}
 
 
 @when("I paste text in the CV section")
 def when_paste_cv_text():
-    pass
+    raise NotImplementedError
 
 
 @when("I press 'Upload' button")
 def when_press_upload_button():
-    pass
-
-
-@then("I should not see the error message")
-def then_no_error_message():
-    pass
+    response = client.post("/upload_text_cv", json={"content": "cv text"})
+    assert response.status_code == 200
+    assert response.json() == {"msg": "CV has been uploaded"}
 
 
 @then("the CV should be uploaded")
 def then_cv_uploaded():
-    pass
+    raise NotImplementedError
 
 
-def create_test_cv_text():
+def create_test_cv_text() -> Literal["cv text"]:
     return "cv text"

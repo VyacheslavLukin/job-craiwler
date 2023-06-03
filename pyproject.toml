@@ -6,7 +6,7 @@ authors = ["Vyacheslav Lukin <slava@edgevision.pro>"]
 license = "LGPL-3.0-only"
 readme = "README.md"
 packages = [
-    {include = "client_api", from = "src"}
+    {include = "src"}
 ]
 
 [tool.poetry.dependencies]
@@ -15,9 +15,19 @@ fastapi = "^0.95.2"
 pytest-bdd = "^6.1.1"
 dynaconf = "^3.1.12"
 uvicorn = "^0.22.0"
+httpx = "^0.24.1"
+pytest-env = "^0.8.1"
 
 [tool.poetry.scripts]
 api = "client_api.webserver:run_server"
+
+[tool.pytest.ini_options]
+bdd_features_base_dir = "features"
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
 
 [build-system]
 requires = ["poetry-core"]

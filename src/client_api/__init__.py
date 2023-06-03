@@ -1,8 +1,11 @@
 from fastapi import FastAPI
+from src.client_api.endpoints import router
 
 app = FastAPI()
 
+app.include_router(router)
 
-@app.get("/upload_text_cv")
-async def upload_text_cv():
-    return {"message": "CV has been uploaded"}
+
+@app.get("/")
+async def root() -> dict[str, str]:
+    return {"msg": "Hello World"}
