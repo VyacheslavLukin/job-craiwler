@@ -6,13 +6,14 @@
       "moduleResolution": "node",
       "lib": [
         "dom",
-        "esnext"
+        "es2022"
       ],
       "strict": true,
       "sourceMap": true,
-      "target": "esnext",
+      "target": "es2022",
     },
     "exclude": [
-      "node_modules"
+      "node_modules",
+      ".eslintrc.cjs"
     ]
   }
