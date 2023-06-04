@@ -16,7 +16,6 @@ pytest-bdd = "^6.1.1"
 dynaconf = "^3.1.12"
 uvicorn = "^0.22.0"
 httpx = "^0.24.1"
-pytest-env = "^0.8.1"
 
 [tool.poetry.scripts]
 api = "client_api.webserver:run_server"
@@ -28,6 +27,10 @@ addopts = "-ra -q"
 testpaths = [
     "tests",
 ]
+pythonpath = [
+  ".", "src"
+]
+
 
 [build-system]
 requires = ["poetry-core"]
